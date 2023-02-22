@@ -1,0 +1,66 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b41bsymhe7y6v"]
+
+[ext_resource type="FontFile" uid="uid://c0stqxks8n63p" path="res://fonts/F25_Bank_Printer.ttf" id="1_rip7g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i51sa"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dp40"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0, 0.294118, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_838bc"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivo8a"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.764706, 0.52549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onmdn"]
+draw_center = false
+
+[resource]
+default_font = ExtResource("1_rip7g")
+default_font_size = 24
+Button/font_sizes/font_size = 16
+Button/styles/hover = SubResource("StyleBoxFlat_i51sa")
+Button/styles/normal = SubResource("StyleBoxFlat_0dp40")
+Button/styles/pressed = SubResource("StyleBoxFlat_838bc")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/font_sizes/font_size = 18
+Label/styles/normal = SubResource("StyleBoxFlat_ivo8a")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_onmdn")

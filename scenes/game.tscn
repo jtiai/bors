@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://dm4f0qwjacnh8"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_gj1yk"]
+[ext_resource type="Theme" uid="uid://cehdjpevnurkn" path="res://themes/ui_theme.tres" id="2_2wo7t"]
+[ext_resource type="PackedScene" uid="uid://d1bdotb2thd8" path="res://scenes/player_config.tscn" id="3_6tvbh"]
+[ext_resource type="Script" path="res://scenes/message_popup.gd" id="4_gn12m"]
+[ext_resource type="PackedScene" uid="uid://dn85a83ky0gua" path="res://scenes/game_over.tscn" id="4_oe7y3"]
+[ext_resource type="FontFile" uid="uid://c0stqxks8n63p" path="res://fonts/F25_Bank_Printer.ttf" id="5_08jfv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnjap"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3471r"]
+bg_color = Color(0.6, 0.588235, 0.494118, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmdp2"]
+content_margin_left = 16.0
+content_margin_right = 5.0
+content_margin_bottom = 16.0
+
+[node name="Game" type="Control"]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gj1yk")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wnjap")
+
+[node name="Players" type="Control" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_2wo7t")
+
+[node name="PlayerConfig" parent="BG" instance=ExtResource("3_6tvbh")]
+visible = false
+layout_mode = 1
+
+[node name="GameOver" parent="BG" instance=ExtResource("4_oe7y3")]
+visible = false
+layout_mode = 1
+
+[node name="MessagePopup" type="PanelContainer" parent="."]
+process_mode = 3
+visible = false
+z_index = 999
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3471r")
+script = ExtResource("4_gn12m")
+
+[node name="CenterContainer" type="CenterContainer" parent="MessagePopup"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="MessagePopup/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_08jfv")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fmdp2")
+text = "Important message which is mile long"
+
+[connection signal="start_game" from="BG/PlayerConfig" to="." method="_on_player_config_start_game"]
+[connection signal="restart_game" from="BG/GameOver" to="." method="_on_game_over_restart_game"]

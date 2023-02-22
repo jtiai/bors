@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Theme" uid="uid://b41bsymhe7y6v" path="res://themes/grid_theme.tres" id="1_swa0o"]
+[ext_resource type="Script" path="res://scenes/stock.gd" id="2_oka7e"]
+[ext_resource type="PackedScene" uid="uid://prkofltk7hxa" path="res://scenes/up_down_counter.tscn" id="3_sbg3f"]
+
+[node name="Stock" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+size_flags_vertical = 3
+theme = ExtResource("1_swa0o")
+theme_type_variation = &"default"
+theme_override_constants/separation = 2
+script = ExtResource("2_oka7e")
+
+[node name="CompanyPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CompanyLabel" type="Label" parent="CompanyPanel"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Random Company"
+vertical_alignment = 1
+clip_text = true
+
+[node name="PricePanel" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PriceLabel" type="Label" parent="PricePanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "99.99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="OwnedPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Owned" parent="OwnedPanel" instance=ExtResource("3_sbg3f")]
+layout_mode = 2
+
+[node name="ChangePanel" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChangeLabel" type="Label" parent="ChangePanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "9.99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="OldPricePanel" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OldPriceLabel" type="Label" parent="OldPricePanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "99.99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DividendPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DividendLabel" type="Label" parent="DividendPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "99.99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="value_changed" from="OwnedPanel/Owned" to="." method="_on_owned_value_changed"]

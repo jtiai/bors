@@ -1,0 +1,218 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1bdotb2thd8"]
+
+[ext_resource type="Script" path="res://scenes/player_config.gd" id="1_7w1kl"]
+[ext_resource type="FontFile" uid="uid://b3crhy7kkibdm" path="res://fonts/F25_Bank_Printer_Bold.ttf" id="2_y8ii1"]
+[ext_resource type="FontFile" uid="uid://c0stqxks8n63p" path="res://fonts/F25_Bank_Printer.ttf" id="3_mcaqf"]
+[ext_resource type="Script" path="res://scenes/player_template.gd" id="4_j10jd"]
+[ext_resource type="Texture2D" uid="uid://4aehygx48b1b" path="res://graphics/warning.svg" id="5_l6opv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2ils"]
+bg_color = Color(0.552941, 0.721569, 0.505882, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68mxa"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tba4l"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpo2k"]
+content_margin_left = 12.0
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp05r"]
+bg_color = Color(0, 0, 0, 0.294118)
+
+[node name="PlayerConfig" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7w1kl")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j2ils")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.294118)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_y8ii1")
+theme_override_font_sizes/font_size = 32
+text = "Player setup"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.294118)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_mcaqf")
+theme_override_font_sizes/font_size = 16
+text = "Please add 1 to 10 players and click 'ready'"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SufflePlayers" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mcaqf")
+theme_override_font_sizes/font_size = 16
+button_pressed = true
+text = "Suffle players at the beginning of the game:"
+
+[node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_68mxa")
+
+[node name="AddButton" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tba4l")
+text = "Add player"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mcaqf")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_wpo2k")
+text = "Number of rounds:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoundsLabel" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tp05r")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoundsSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_right = 160
+
+[node name="PlayerList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="PlayerTemplate" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer2/PlayerList"]
+visible = false
+layout_mode = 2
+script = ExtResource("4_j10jd")
+
+[node name="PlayerNameEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter player name"
+max_length = 30
+caret_blink = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate"]
+layout_mode = 2
+texture = ExtResource("5_l6opv")
+expand_mode = 2
+
+[node name="Panel2" type="Panel" parent="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_68mxa")
+
+[node name="RemovePlayerButton" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tba4l")
+text = "Remove"
+
+[node name="MarginContainer3" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReadyButton" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tba4l")
+text = "Ready"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/RoundsSlider" to="." method="_on_rounds_slider_value_changed"]
+[connection signal="player_name_changed" from="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate" to="." method="_on_player_template_player_name_changed"]
+[connection signal="player_removed" from="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate" to="." method="_on_player_template_player_removed"]
+[connection signal="text_changed" from="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate/PlayerNameEdit" to="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate" method="_on_player_name_edit_text_changed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate/RemovePlayerButton" to="PanelContainer/VBoxContainer/MarginContainer2/PlayerList/PlayerTemplate" method="_on_remove_player_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer3/ReadyButton" to="." method="_on_ready_button_pressed"]

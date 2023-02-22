@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://prkofltk7hxa"]
+
+[ext_resource type="Script" path="res://scenes/up_down_counter.gd" id="1_jvb2q"]
+
+[node name="UpDownCounter" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 4
+script = ExtResource("1_jvb2q")
+
+[node name="ValueLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="UpButton" type="Button" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Buy"
+
+[node name="DownButton" type="Button" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Sell"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="DownButton" to="." method="_on_down_button_pressed"]
